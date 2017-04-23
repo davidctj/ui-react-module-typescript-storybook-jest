@@ -1,0 +1,82 @@
+{
+    "name": "ui-react-module-typescript-storybook-jest",
+    "version": "1.0.0",
+    "description": "Module by React Typescript",
+    "author": "caitengjiao1987@gmail.com",
+    "keywords": [
+        "Component",
+        "Typescript",
+        "Module",
+        "React",
+        "Storybook",
+        "JEST"
+    ],
+    "main": "./dist/index.js",
+    "typings": "./dist/index.d.ts",
+    "scripts": {
+        "clean": "rimraf dist/*",
+        "copy": "cpx 'src/app/**/*.{png,jpg,css}' dist",
+        "build:ts": "tsc -p src",
+        "test": "jest --notify --coverage --bail",
+        "watch": "tsc -p src -w",
+        "prebuild": "npm run clean && npm run test && npm run copy",
+        "build": "npm run build:ts",
+        "storybook": "start-storybook -p 9001 -c storybook/.config"
+    },
+    "jest": {
+        "globals": {
+            "__TS_CONFIG__": "src/tsconfig.json"
+        },
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ],
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+            "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+        },
+        "transform": {
+            ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+        },
+        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
+        "coverageThreshold": {
+            "global": {
+                "lines": 75
+            }
+        }
+    },
+    "devDependencies": {
+        "@kadira/react-storybook-addon-info": "^3.4.0",
+        "@kadira/storybook": "^2.35.3",
+        "@kadira/storybook-addon-knobs": "^1.7.1",
+        "@types/enzyme": "^2.7.9",
+        "@types/jest": "^19.2.2",
+        "@types/node": "^7.0.13",
+        "@types/react": "^15.0.22",
+        "@types/react-dom": "^0.14.23",
+        "bootstrap": "^3.3.7",
+        "cpx": "^1.5.0",
+        "cross-env": "^4.0.0",
+        "css-loader": "^0.28.0",
+        "enzyme": "^2.8.2",
+        "expose-loader": "^0.7.3",
+        "file-loader": "^0.11.1",
+        "imports-loader": "^0.7.1",
+        "jest": "^19.0.2",
+        "jquery": "^2.2.4",
+        "react": "^15.5.4",
+        "react-dom": "^15.5.4",
+        "react-test-renderer": "^15.5.4",
+        "rimraf": "^2.6.1",
+        "source-map-loader": "^0.2.1",
+        "ts-jest": "^19.0.10",
+        "ts-loader": "^2.0.3",
+        "tslint": "^5.1.0",
+        "tslint-loader": "^3.5.2",
+        "typescript": "^2.3.0",
+        "url-loader": "^0.5.8",
+        "webpack": "^2.4.1",
+        "webpack-merge": "^4.1.0"
+    }
+}
