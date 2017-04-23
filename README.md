@@ -19,7 +19,7 @@ $ npm install -S bootstrap@3
 $ npm i -S NPM-path/ui-widgets-ts
 ```
 
-* Import
+* Import related assets in your project
 ```js
 // CSS Assets
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -51,7 +51,7 @@ $ npm run watch
 ```
 
 * open second terminal
-§```
+```bash
 $ npm run build
 $ npm run storybook
 ```
